@@ -26,7 +26,7 @@ class ResetUserPasswordAction(MicrosoftADAction):
 
 class EnableUserAction(MicrosoftADAction):
     name = "Enable User"
-    description = "Enable an Azure Active Directory user"
+    description = "Enable an on-premises Active Directory user. Requires to have write access to userAccountControl property."
 
     def run(self, arguments: UserAccountArguments):
         user_query = self.search_userdn_query(arguments.username, arguments.basedn)
@@ -51,7 +51,7 @@ class EnableUserAction(MicrosoftADAction):
 
 class DisableUserAction(MicrosoftADAction):
     name = "Disable User"
-    description = "Disable an Azure Active Directory user"
+    description = "Disable an on-premises Active Directory user. Requires to have write access to userAccountControl property."
 
     def run(self, arguments: UserAccountArguments):
         user_query = self.search_userdn_query(arguments.username, arguments.basedn)
